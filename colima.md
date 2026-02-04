@@ -86,3 +86,96 @@ mac起動時に立ち上げてるなら、
 * volume遅い
 * composeで詰まってる
 * Colimaのおすすめオプション知りたい
+
+## Trouble Shooting
+
+```
+brew services list
+Name   Status  User  File
+colima started  ~/Library/LaunchAgents/homebrew.mxcl.colima.plist
+mysql  started  ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+docker-compose -f compose.yml -f compose.override-dev.yml up --build
+unable to get image '': Cannot connect to the Docker daemon at unix:///Users/.colima/default/docker.sock. Is the docker daemon running?
+```
+
+`brew services list` だと colima が started になってるのに、docker がその sock に繋がらないやつ。
+
+だいたい原因はどっちかだよ👇
+
+## 1. docker CLI が colima の context じゃない
+
+今どの context 使ってるかチェック：
+
+```
+docker context ls
+```
+
+`colima` が `*` になってなかったら切り替える：
+
+```
+docker context use colima
+```
+
+## 2. colima の docker engine が死んでる
+
+colima running でも daemon 止まってる時あるんよね（まじ紛らわしい…😇）
+
+```
+colima stop
+colima start
+```
+
+一旦再起動で治ること多い
+
+## 3. compose が desktop 側参照してる
+
+`docker-compose` 古いほうだと context 無視して mac の desktop 見に行くことある
+新しい方 (`docker compose`) のほうが相性いい
+
+試しに：
+
+```
+docker compose up --build
+```
+
+（compose と compose.yml は勝手に拾う）
+
+## 4. sock の場所ずれ
+
+エラーメッセージ見るに colima の sock は：
+
+```
+/Users/kihhi/.colima/default/docker.sock
+```
+
+環境変数合ってるか確認：
+
+```
+echo $DOCKER_HOST
+```
+
+もしなんか別の値だったら：
+
+```
+unset DOCKER_HOST
+```
+
+## 補足で一応…
+
+colima の docker が動いてるか：
+
+```
+colima status
+```
+
+## 個人的予想
+
+これは context か compose で desktop 側参照してる説濃厚。
+colima 初回導入はいいんだけど、compose + Desktop 併用歴あると結構競合するｗ
+
+もし良かったら：
+
+* `docker context ls`
+* `colima status`
+* compose のバージョン (`docker compose version`)
+* docker のバージョン (`docker version`)
