@@ -1,70 +1,105 @@
-# セットアップ用アプリ一覧
+# Application Overview
 
-- [Homebrew](https://brew.sh/)
+## 🧰 パッケージ管理・基本ツール
 
-- Git
+* Homebrew
+* Volta (npm)
 
-- node
-- Bun
-- Python
-- java sdk
-- rustup-init
-- Go Compiler
-- php
+## 💻 プログラミング言語・ランタイム
 
-- Chrome
+* Git
+* node
+* Bun
+* Python
+* java sdk
+* rustup-init
+* Go Compiler
+* php
 
-- Powertoys
-- Scroll Reverser
+## 🌐 ブラウザ
 
-- Apache
+* Chrome
 
-- Volta (npm) 
+## 🖥️ OS拡張・ユーティリティ
 
-- Prometeus
-- Grafana
+* Powertoys
+* Scroll Reverser
 
-- Postman
+## 🌍 Webサーバー
 
-- cisco packet tracer
-- Kindle
+* Apache
 
-- Microsoft Office
-- TailScale
+## 📊 監視・モニタリング
 
-- Slack
-- Zoom
-- Google Meet
-- Discord
+* Prometheus
+* Grafana
 
-- Notion
-- Obsidian
-- google drive
+## 🔌 API・開発支援
 
-- Virtualbox
-- Docker Desktop
+* Postman
 
-- GIMP
-- Figma
+## 🌐 ネットワーク・通信
 
-- OBS studio
-- [vb-cable](https://vb-audio.com/Cable/)
-- [finetune](https://github.com/ronitsingh10/FineTune)
+* Cisco Packet Tracer
+* Tailscale
 
-- Cursor
-- Cursor CLI
-- Windsurf
-- Claude Desktop
-- Claude Code
+## 🧑‍💼 オフィス・業務
 
-- MySQL
+* Microsoft Office
+* Kindle
 
-- [Warp](https://www.warp.dev/)
-- winSCP
-- tera term
-- Termius
-- AWS CLI
+## 💬 コミュニケーション
 
-- Fusion 360
+* Slack
+* Zoom
+* Google Meet
+* Discord
 
-- steam
+## 📝 ナレッジ・ドキュメント
+
+* Notion
+* Obsidian
+* Google Drive
+
+## 🐳 仮想化・コンテナ
+
+* VirtualBox
+* Docker Desktop
+
+## 🎨 デザイン・画像編集
+
+* GIMP
+* Figma
+
+## 🎥 配信・音声関連
+
+* OBS Studio
+* FineTune
+
+## 🤖 AI・開発ツール
+
+* Cursor
+* Cursor CLI
+* Windsurf
+* Claude Desktop
+* Claude Code
+
+## 🗄️ データベース
+
+* MySQL
+
+## 🖥️ ターミナル・リモート接続
+
+* Warp
+* WinSCP
+* Tera Term
+* Termius
+* AWS CLI
+
+## 🛠️ CAD・設計
+
+* Fusion 360
+
+## 🎮 エンタメ
+
+* Steam
